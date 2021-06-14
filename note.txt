@@ -1,2 +1,0 @@
-Organize libft (obj src folder)
-Change makefil
