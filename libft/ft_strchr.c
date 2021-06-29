@@ -6,7 +6,7 @@
 /*   By: edassess <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:27 by edassess          #+#    #+#             */
-/*   Updated: 2021/03/11 12:56:42 by edassess         ###   ########lyon.fr   */
+/*   Updated: 2021/06/29 17:45:15 by edassess         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*tmp_s;
+	char *tmp;
 
-	tmp_s = (char *)s;
-	if (!ft_isascii(c))
-		return (tmp_s);
-	if (!c)
-		return (tmp_s + ft_strlen(s));
-	while (*tmp_s)
-	{
-		if (*tmp_s == c)
-			return (tmp_s);
-		tmp_s++;
-	}
+	tmp = (char *)s;
+	while (*tmp)
+		if (*tmp++ == c)
+			return (tmp - 1);
 	return (NULL);
 }

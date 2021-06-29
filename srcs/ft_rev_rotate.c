@@ -6,11 +6,13 @@
 /*   By: edassess <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:40:20 by edassess          #+#    #+#             */
-/*   Updated: 2021/05/20 11:47:46 by edassess         ###   ########lyon.fr   */
+/*   Updated: 2021/06/29 17:22:14 by edassess         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_rotate(int tab[])
+#include "../includes/pushswap.h"
+
+void	ft_rev_rotate(int tab[], char *s)
 {
 	int	tmp;
 	int	i;
@@ -22,10 +24,11 @@ void	ft_rev_rotate(int tab[])
 	while (--i)
 		tab[i] = tab[i - 1];
 	tab[0] = tmp;
+	ft_putstr_fd(s, 1);
 }
 
 void	ft_rev_rotate_rr(int tab1[], int tab2[])
 {
-	ft_rev_rotate(tab1);
-	ft_rev_rotate(tab2);
+	ft_rev_rotate(tab1, NULL);
+	ft_rev_rotate(tab2, "rrr");
 }

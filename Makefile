@@ -6,7 +6,7 @@
 #    By: edassess <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 16:16:20 by edassess          #+#    #+#              #
-#    Updated: 2021/06/28 16:24:02 by edassess         ###   ########lyon.fr    #
+#    Updated: 2021/06/29 17:25:33 by edassess         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ UNDER		=	\033[4m
 SUR			=	\033[7m
 END			=	\033[0m
 NAME = push_swap
-SRCS_NAME = pushswap.c ft_parsing.c ft_push.c ft_rev_rotate.c ft_rotate.c \
-			ft_swap.c
+SRCS_NAME = main.c ft_parsing.c ft_push.c ft_rev_rotate.c ft_rotate.c \
+			ft_swap.c sorted_tab.c sort.c
 LIB_NAME = pushswap.h
 OBJS_NAME = $(SRCS_NAME:.c=.o)
 SRCS_PATH = srcs
@@ -38,21 +38,27 @@ RM		=	rm -f
 CC		=	gcc
 #FSAN	=	-g -fsanitize=address
 CFLAGS	=	-Wall -Werror -Wextra
+
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c $(LIB) libft/libft.a
 			@mkdir -p $(OBJS_PATH)
 			@$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB_PATH)
 			@printf "$(ERASE)$(YELLOW)$@$(END)"
+
 all:	compil_lib
 		@$(MAKE) $(NAME)
+
 compil_lib :
 			@$(MAKE) -C ./libft
+
 $(NAME): $(OBJS)
-	@printf "$(ERASE)"
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -I $(LIB_PATH) -Llibft -lft
-	@echo "$(BOLD)$(GREEN)Compilation $(NAME) Succes !$(END)"
+			@printf "$(ERASE)"
+			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -I $(LIB_PATH) -Llibft -lft
+			@echo "$(BOLD)$(GREEN)Compilation $(NAME) Succes !$(END)"
+
 clean :
 		@rm -rf $(OBJS_PATH)
 		@echo "$(RED)Clean $(NAME) Succes !$(END)"
+
 fclean :	clean
 			@rm -f $(NAME)
 			@$(MAKE) fclean -C ./libft

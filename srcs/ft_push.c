@@ -6,13 +6,13 @@
 /*   By: edassess <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:53:32 by edassess          #+#    #+#             */
-/*   Updated: 2021/05/26 11:48:37 by edassess         ###   ########lyon.fr   */
+/*   Updated: 2021/06/29 17:21:25 by edassess         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../includes/pushswap.h"
 
-void	ft_push(int src[], int dst[])
+void	ft_push(int src[], int dst[], char *s)
 {
 	int	tmp;
 	int	i;
@@ -33,4 +33,5 @@ void	ft_push(int src[], int dst[])
 	while (src[++i + 1])
 		src[i] = src[i + 1];
 	src[i] = 0;
+	ft_putstr_fd(s, 1);
 }

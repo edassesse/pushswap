@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotate.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edassess <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 11:35:12 by edassess          #+#    #+#             */
-/*   Updated: 2021/06/29 16:26:15 by edassess         ###   ########lyon.fr   */
+/*   Created: 2021/06/29 15:58:54 by edassess          #+#    #+#             */
+/*   Updated: 2021/06/29 17:32:33 by edassess         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pushswap.h>
+#include "../includes/pushswap.h"
 
-void	ft_rotate(int tab[], char *s)
+int main(int ac, char **av)
 {
-	int	tmp;
-	int	i;
+	int	**tab;
+	int	size;
 
-	i = -1;
-	tmp = tab[0];
-	while (tab[++i + 1])
-		tab[i] = tab[i + 1];
-	tab[i] = tmp;
-	ft_putstr_fd(s, 1);
+	if (ac < 2)
+	{
+		ft_putstr_fd("frr concentre toi\n", 1);
+		exit(0);
+	}
+	av[ac] = NULL;
+	tab = ft_parsing(av);
+	size = tab_size(av);
+	ft_sort(tab, size);
+	ft_putstr_fd("gg mec\n", 1);
 }
